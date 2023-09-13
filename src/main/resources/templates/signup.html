@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration Form- Scorecard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+          crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            min-height: 100vh;
+            background-color: transparent;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 50px;
+            border-radius: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 40%;
+        }
+
+        .image-container {
+            background-image: url('https://res.cloudinary.com/gadibia/image/upload/v1694175817/images/9XArNXnYCeDEK29GATq6913N8izBanJkZrUxMce1l4O4GFlZUQN8AybmidDXZdXnlghm2xFyhSLtziDH7khlDBmREvRYeDNmTGEy4VX92vKCZhooycIBkpzXQzqnziOf_v09ostu1vxQw_gnJZ6X4Kd9VL3cM3vTGF3e9OVxNNwd_mGSjXg9Pb1dTV_uTz_kGluhJcQix92edvS_P6I_lxva0g.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 60%;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #000000;
+            font-size: 32px;
+            font-weight: bold;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        label {
+            text-align: left;
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        select {
+            appearance: none;
+        }
+
+        input[type="submit"] {
+            background-color: rgba(90, 180, 29, 0.78);
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3d8628;
+        }
+
+        p {
+            margin-top: 20px;
+            margin-bottom: 40px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        .go-back-text {
+            color: #81e30a;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <p class="go-back-text">Go back to Login</p>
+
+    <h1>Sign Up</h1>
+
+    <form action="/signup" method="POST" th:action="@{/signup}" th:object="${signUpRequest}">
+        <label for="firstName" style="text-align: left;">First Name:</label>
+        <input type="text" id="firstName" autofocus="autofocus"
+               class="form-control" required="required" th:field="*{firstName}" placeholder="First Name">
+
+        <label for="lastName" style="text-align: left;">Last Name:</label>
+        <input type="text" id="lastName" autofocus="autofocus"
+               class="form-control" required="required" th:field="*{lastName}" placeholder="Last Name">
+
+        <label for="UserName">Username:</label>
+        <input type="text" id="username" autofocus="autofocus"
+               class="form-control" required="required" th:field="*{userName}" placeholder="Username">
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" autofocus="autofocus"
+               class="form-control" required="required" th:field="*{email}" placeholder="Email">
+
+
+        <label for="password">Password:</label>
+        <input type="text" id="password" autofocus="autofocus"
+               class="form-control" required="required" th:field="*{password}" placeholder="Password">
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="text" id="confirmPassword" autofocus="autofocus"
+               class="form-control" required="required" th:field="*{confirmPassword}" placeholder="Confirm Password">
+
+        <input type="submit" value="Sign Up">
+    </form>
+</div>
+
+<div class="image-container"></div>
+</body>
+</html>
